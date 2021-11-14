@@ -1,0 +1,41 @@
+<div class="sidenav">
+    <a href="../home/home.component.html">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">Notifications</a>
+    <a href="#">Messages</a>
+    <a href="#">Profile</a>
+    <a href="#">Follow</a>
+    <a href="" (click)="logout()">Logout</a>
+</div>
+<div class="container">
+    <div class="feed">
+        <div class="feed-header">
+            Home
+        </div>
+        <div class="tweetbox">
+            <form (ngSubmit)="postTweet()">
+                <div class="tweetbox_input">
+                    <img src="../../assets/profile.png" style="height: 22px;width: 20px;" alt="">
+                    <input class="form-control" type="text" id="tweettext" placeholder="What's happening" name="tweettext" [formControl]='tweettext' style="width: 250px;">
+                </div>
+                <button type="submit" class="tweet_button btn-primary float-right">Tweet</button>
+            </form>
+        </div>
+    </div>
+	<div id="tweet-card" class="card" style="width:20rem;" *ngFor="let tweets of tweetList; let i = index">
+        <div *ngFor="let tweet of tweets; let j = index">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{tweet.author.uname}}</h4>
+                    <p id="dates" class="card-subtitle mb-2 text-muted">{{tweet.created}}</p>
+                    <p class="card-text">{{tweet.tweet}}</p>
+                    <div class="interaction">
+                        <h6><a href="#">Reply</a> | <a href="#">Retweet</a> | <a href="#">Like</a> | <a href="#">DM</a></h6>
+                    </div>
+                </div>
+            </div>
+            
+		</div>
+	</div>
+    
+</div>
